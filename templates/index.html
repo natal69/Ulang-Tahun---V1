@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Chesil!</title>
+    <style>
+        body {
+            background-color: #ffe6e6; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding-top: 10vh;
+            color: #ff4d4d;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #ff3366;
+        }
+        p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .btn {
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 6px rgba(255, 51, 102, 0.3);
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #e60039;
+            box-shadow: 0 6px 12px rgba(255, 51, 102, 0.4);
+        }
+        /* Style khusus untuk tombol musik */
+        #btn-musik {
+            background-color: #ff80a6;
+        }
+        #btn-musik:hover {
+            background-color: #ff4d88;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Ulang Tahun, Chesil! 🎂✨</h1>
+        <p>
+            Semoga di umur yang baru ini kamu makin bersinar, rezekinya makin lancar, dan semua yang kamu semogakan tahun ini bisa pelan-pelan terwujud.<br><br>
+            Semangat terus nge-lab nyaa...... Tapi jangan sampai nge lem...💖
+        </p>
+        
+        <button class="btn" id="btn-musik" onclick="putarMusik()">▶️ Putar Lagu Spesial Dulu</button>
+        
+        <button class="btn" id="btn-kado" onclick="tampilkanKejutan()" style="display: none;">🎁 Klik Buat Liat Kado!</button>
+
+        <audio id="audioPlayer">
+            <source src="{{ url_for('static', filename='lagu_ultah.mp3') }}" type="audio/mpeg">
+            Browser kamu tidak mendukung elemen audio.
+        </audio>
+    </div>
+
+    <script>
+        function putarMusik() {
+            // Mengambil elemen audio dari DOM (Document Object Model) dan memutarnya
+            let musik = document.getElementById("audioPlayer");
+            musik.play();
+            
+            // Manipulasi antarmuka: sembunyikan tombol musik, tampilkan tombol kado
+            document.getElementById("btn-musik").style.display = "none";
+            document.getElementById("btn-kado").style.display = "inline-block";
+        }
+
+        function tampilkanKejutan() {
+            // Memberikan jeda 500ms agar eksekusi alert terasa lebih natural
+            setTimeout(() => {
+                alert("Cieee deg-degan nungguin kado ya? 🤭");
+                alert("Maaf ya cil, kado fisiknya nyusul aja. Budgetnya lagi dialihkan buat beli alat musik wkwkwk. Sehat-sehat terus ya! 🎉");
+            }, 500);
+        }
+    </script>
+</body>
+</html>
